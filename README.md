@@ -1,4 +1,6 @@
-[![Build and deploy ASP.Net Core app to Azure Web App - pagerankapi](https://github.com/g4m3r0/PageRankApi/actions/workflows/master_pagerankapi.yml/badge.svg)](https://github.com/g4m3r0/PageRankApi/actions/workflows/master_pagerankapi.yml)
+[![Deploy API](https://github.com/g4m3r0/PageRankApi/actions/workflows/master_pagerankapi.yml/badge.svg)](https://github.com/g4m3r0/PageRankApi/actions/workflows/master_pagerankapi.yml)
+
+[![Available on RapidAPI](https://img.shields.io/static/v1?label=RapidAPI&message=Google%20PageRank%20API&color=blue&logo=rapidapi)](https://rapidapi.com/gsoftwarelab-gsoftwarelab-default/api/google-pagerank-api)
 
 # PageRankApi
 
