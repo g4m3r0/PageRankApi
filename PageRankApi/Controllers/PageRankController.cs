@@ -4,7 +4,7 @@ using PageRankApi.Services;
 namespace PageRankApi.Controllers;
 
 [ApiController]
-[Route("api/[controller]")]
+[Route("[controller]")]
 public class PageRankController : ControllerBase
 {
     private readonly IPageRankService _pageRankService;
