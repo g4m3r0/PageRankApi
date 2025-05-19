@@ -1,0 +1,6 @@
+@PageRankApi_HostAddress = http://localhost:5117
+
+GET {{PageRankApi_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
