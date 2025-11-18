@@ -58,7 +58,9 @@ public class PageRankService : IPageRankService
     /// Cleans the input string to extract a valid hostname.
     /// </summary>
     /// <param name="host">The user-provided host string.</param>
-    /// <returns>A cleaned hostname or just the host if invalid.</returns>
+    /// <returns>
+    /// A URL-encoded hostname if parsing succeeds; otherwise, the original host string.
+    /// </returns>
     private string CleanHost(string host)
     {
         if (string.IsNullOrWhiteSpace(host))
