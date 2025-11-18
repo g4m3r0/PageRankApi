@@ -12,6 +12,17 @@ public class Program
         builder.Services.AddHttpClient();
         builder.Services.AddScoped<IPageRankService, PageRankService>();
 
+        builder.Services.AddCors(options =>
+        {
+            options.AddPolicy("AllowAll",
+                builder =>
+                {
+                    builder.AllowAnyOrigin()
+                           .AllowAnyMethod()
+                           .AllowAnyHeader();
+                });
+        });
+
         builder.Services.AddControllers();
         // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
         builder.Services.AddOpenApi();
@@ -25,6 +36,8 @@ public class Program
         app.UseSwaggerUI();
 
         app.UseHttpsRedirection();
+
+        app.UseCors("AllowAll");
 
         app.UseAuthorization();
 
