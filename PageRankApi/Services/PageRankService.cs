@@ -81,7 +81,7 @@ public class PageRankService : IPageRankService
             return WebUtility.UrlEncode(uri.Host);
         }
 
-        return host;
+        return WebUtility.UrlEncode(decodedHost);
     }
 
     /// <summary>
