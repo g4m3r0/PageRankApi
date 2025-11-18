@@ -1,4 +1,5 @@
 using PageRankApi.Services;
+using System.Reflection;
 
 namespace PageRankApi;
 
@@ -12,10 +13,25 @@ public class Program
         builder.Services.AddHttpClient();
         builder.Services.AddScoped<IPageRankService, PageRankService>();
 
+        builder.Services.AddCors(options =>
+        {
+            options.AddPolicy("AllowAll",
+                builder =>
+                {
+                    builder.AllowAnyOrigin()
+                           .AllowAnyMethod()
+                           .AllowAnyHeader();
+                });
+        });
+
         builder.Services.AddControllers();
         // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
         builder.Services.AddOpenApi();
-        builder.Services.AddSwaggerGen();
+        builder.Services.AddSwaggerGen(options =>
+        {
+            var xmlFilename = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+            options.IncludeXmlComments(Path.Combine(AppContext.BaseDirectory, xmlFilename));
+        });
 
         var app = builder.Build();
 
@@ -25,6 +41,8 @@ public class Program
         app.UseSwaggerUI();
 
         app.UseHttpsRedirection();
+
+        app.UseCors("AllowAll");
 
         app.UseAuthorization();
 
